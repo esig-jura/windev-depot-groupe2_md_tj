@@ -1,0 +1,16 @@
+//MO000-001.TXT ANA00000 TO ANA00001
+TB_categorie		NFI		nouveau fichier
+TB_clients		NFI		nouveau fichier
+TB_commande		NFI		nouveau fichier
+TB_Fournisseur		NFI		nouveau fichier
+TB_ligne_de_commande		NFI		nouveau fichier
+TB_localite		NFI		nouveau fichier
+TB_mobilier		NFI		nouveau fichier
+fk_TB_clients_TB_localité1		NWL	TB_localite (pk_localite) et TB_clients (fk_localite)	Nouvelle liaison entre les fichiers TB_localite (pk_localite) et TB_clients (fk_localite)
+fk_TB_commande_TB_clients1		NWL	TB_clients (pk_clients) et TB_commande (fk_client)	Nouvelle liaison entre les fichiers TB_clients (pk_clients) et TB_commande (fk_client)
+fk_TB_Fournisseur_TB_localité1		NWL	TB_localite (pk_localite) et TB_Fournisseur (fk_localite)	Nouvelle liaison entre les fichiers TB_localite (pk_localite) et TB_Fournisseur (fk_localite)
+fk_TB_mobilier_has_TB_commande_TB_commande1		NWL	TB_commande (pk_commande) et TB_ligne_de_commande (fk_commande)	Nouvelle liaison entre les fichiers TB_commande (pk_commande) et TB_ligne_de_commande (fk_commande)
+fk_TB_mobilier_has_TB_commande_TB_mobilier1		NWL	TB_mobilier (pk_mobilier) et TB_ligne_de_commande (fk_mobilier)	Nouvelle liaison entre les fichiers TB_mobilier (pk_mobilier) et TB_ligne_de_commande (fk_mobilier)
+fk_TB_mobilier_TB_Fournisseur1		NWL	TB_Fournisseur (pk_fournisseur) et TB_mobilier (fk_fournisseur)	Nouvelle liaison entre les fichiers TB_Fournisseur (pk_fournisseur) et TB_mobilier (fk_fournisseur)
+fk_TB_mobilier_TB_categorie1		NWL	TB_categorie (pk_categorie) et TB_mobilier (fk_categorie)	Nouvelle liaison entre les fichiers TB_categorie (pk_categorie) et TB_mobilier (fk_categorie)
+ConnexionmySQL		CNX+		
