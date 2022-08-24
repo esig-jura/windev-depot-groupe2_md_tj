@@ -28,7 +28,7 @@ window :
      -
        name : fk_client
        identifier : 0x2304928101f6b3ed
-       internal_properties : BQAAAAUAAABXsJPtlBFRSeKs0WxSVrx83uRdWkLAJKor9RdjOMkUf43zxO/M4Us0+pnXWcqcd+nX8qOAKPIp4rjoLddvk9Q8XKXznxRh+rrQh+EuD/p7PGGYnBGBMOzajuxUPFeK7kKBB46+Sb5xcxQ1C3oOJUCaUubBfQayCDN0iIZtNIi79AKMsgokeJJS75s3RUAzPaAgmp+EUDkHfzAiY8kxYzw+67Fqx5QSovdUeX66H8K6jObX2I3zq2orA/Xrtr1hfcs8xA==
+       internal_properties : BQAAAAUAAAC7JCdRuDWFlQ4IbZje0jiAWmDZxs5MoC4/GavnvF2YG9GXaMNg1V8wlmWjFWYI411Dfj8MJM7VdrzsMftz1wj44Mkn48iV3pZ88x36ayaXUO00yG29nAh+YrBoMEuO/qoRe3qyRbp1d2jZr55q+XRO5nJV6arWNN8g5GJJyOTnoK4w7k7ghKZm85/L6SwnwSSkJhMQxI1Ty0wOX9UFv1jaB1WGOyCOJnsojQI+m0Y+EGpTXAl3L/a3n1G34uFNCVeoqA==
        type : 2
        content :
         internal_properties : BQAAAAUAAAAlqPtA0jX1CeP9e/kaKrrjgze0guqlpjpM7IDfS8KwJo50Zn8GO1wh0fhUU7SdZ5RJQfnS04+e2/EuZl2zzQAooQKCwoCpfzjpvFp/ecXrh08BUiJ+uv7LG/5ejLOs7s4YImex6SW90TTRzsqXJ9VtlUjSsM0GyiZUz7ByssWGxmprqw5Sn0J6sE9l9WTDM+vIjrWTTChS/+teellQMrKa7eOFbEJNmHeZSR2wj2kQpEsIOgZg9bWsXMAZ3bx9Kag0fTUGIlnBDRfFhjIBfy5N0vRc+p6XgBuuqxXfR0/3z2nhzK/mENZW3WCsoh9MiAEg8+NJNgpar2Fctl7MYd2t2h/eVDsEBdFKfGU71gMt5tiBIKk8/RCVOcYi4U4ngWUoPuJx0xcOamS2JIdgQZ2RX0tJ0tjX2p30g8T84gQU3EEf597pMh80QV5c1ADfFa4Ag9MamMsG88+aNoPH6wVG7gQE27JLOTEpkl1tH8G+iDNSggY+NP8PmuIdGKxH+d44KfTZZV10CB0WUfD93xMFfZ9wERelqaebGkcFzqtr3aC7eDfxygSYuPtlNXqLw9gCInAHK6Cjsc+hiN8Nu0kbG04mNgpuhx9qqiIj089qWmyVssfgXHl+XvcLhOWA2iOH4yvIs9FNvHBW+8TsZmsBVy+Z29ezihYJqOctj+5IW3eiy0yfoiYl389RhtUPjGJMrH7u51gaWEqcv7P+FjrHK7wKXXSeYMvyLexw6BpnK2mODNOHw030NYpCuleVIVDgr21uUj5Aq5Q1aOIEkMD4c9PprdQBXuUP6Y+64zjAeh2ImK+qxM3+Igc5CteH3i1FeRr81iZEhT4p9+A=
@@ -130,6 +130,16 @@ window :
     code_elements :
      type_code : 4
      p_codes :
+      -
+        code : |1+
+         IF YesNo(No,"Voulez-vous supprimer cette enregistrement?") THEN
+         	HDelete(TB_commande)
+         	Table_TB_commande.BrowsedFile = "TB_commande"
+         ELSE
+         	Info("Suppression abandonnée")
+         END
+         
+        type : 18
       -
         type : 161
         enabled : false

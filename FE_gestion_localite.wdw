@@ -40,6 +40,16 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         
+         IF YesNo(No,"Voulez-vous supprimer cette enregistrement?") THEN
+         	HDelete(TB_localite)
+         	Table_TB_localite.BrowsedFile = "TB_localite"
+         ELSE
+         	Info("Suppression abandonnée")
+         END
+        type : 18
+      -
         type : 161
         enabled : false
   -

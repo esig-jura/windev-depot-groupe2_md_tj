@@ -119,6 +119,16 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         IF YesNo(No,"Voulez-vous supprimer cette enregistrement?") THEN
+         	HDelete(TB_Fournisseur)
+         	Table_TB_Fournisseur.BrowsedFile = "TB_Fournisseur"
+         ELSE
+         	Info("Suppression abandonnée")
+         END
+         
+        type : 18
+      -
         type : 161
         enabled : false
   -
