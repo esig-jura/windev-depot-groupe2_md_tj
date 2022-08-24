@@ -61,6 +61,11 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         Open(FE_ajout_localite)
+         TableDisplay(Table_TB_localite,taCurrentSelection)
+        type : 18
+      -
         type : 161
         enabled : false
   -

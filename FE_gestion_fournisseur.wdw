@@ -140,6 +140,11 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         Open(FE_ajout_fournisseur)
+         TableDisplay(Table_TB_Fournisseur,taCurrentSelection)
+        type : 18
+      -
         type : 161
         enabled : false
   -
