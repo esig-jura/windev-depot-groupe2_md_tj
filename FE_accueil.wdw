@@ -29,6 +29,10 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1-
+         
+        type : 18
+      -
         type : 161
         enabled : false
   -
@@ -40,6 +44,11 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         Use(FE_gestion_fournisseur)
+         
+        type : 18
+      -
         type : 161
         enabled : false
   -
@@ -50,6 +59,10 @@ window :
     code_elements :
      type_code : 4
      p_codes :
+      -
+        code : |1+
+         Use(FE_gestion_localite)
+        type : 18
       -
         type : 161
         enabled : false
@@ -72,6 +85,25 @@ window :
     code_elements :
      type_code : 4
      p_codes :
+      -
+        code : |1+
+         Use(FE_gestion_commande)
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BT_Quitter
+    identifier : 0x230734570435f4b6
+    internal_properties : BQAAAAUAAABHkQnSCFi1pqBPtP55G5Fx1M4JM73fuJmN4QKLIG78L54goYlhGU5ckWGC53wjZ1azMh7dR8y6IJ5sBz6XeIcKRnlqWm1BjB3sH73d9Vq9U8z+mfTJ6w/bW4X2/oJN5jPV/hPo9C405dG/QAEf8890wYtmsk7597Tx3TRS6qALI1CXCtUYuKtrdn1LiNbVWzQuirqtlkQxW9Dd3RL4IKPbG9QtE7zQEGdROywMN7EWf0aHSfT+Fo+uukrZoF2/b9Z95qbiCZmtD2UVk7ld+KhQ2oZOosI7LL3vc2JhtbvTfLfKIo9WK/mM1OBurE3xJzoXqObTstkf+TzxLKAlZKmBgoaQk3p89LVC7qdUtsINhBQ7z3BawmeDxF160VQZ+c9blDanGkQpmoTq9n4bTeLND9I9D2NBseVVnCYFED09hwdkPD31trk5JWGg13KNsTrjf3qyjFDS4SXbkvKgI4FoOtRj/9pgKTufj3vgcJjLXpEvRZz+dIpmBQF+HmQv5FelyqcGhG762dWo7sp+5yBW5wNCCzsPoaFYneONqYSTEb6yNGTivmF3OdPpG8UboxDwYgP5H6kNyEuHFEtR2+dFXGJXAB4cxOvIwiHBZ+GjuCxuHGDV/4UwYrxUnifzrvw46rzVsy2lwGg08tBN9U1DnlbGG98DUYd5NUhFJLfxyvcTz+FsLWZOTZPygx1LqC5S1g==
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1+
+         Close()
+        type : 18
       -
         type : 161
         enabled : false
