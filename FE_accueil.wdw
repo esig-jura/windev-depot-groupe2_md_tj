@@ -30,7 +30,7 @@ window :
      p_codes :
       -
         code : |1-
-         
+         Use(FE_gestion_mobilier)
         type : 18
       -
         type : 161
@@ -74,6 +74,10 @@ window :
     code_elements :
      type_code : 4
      p_codes :
+      -
+        code : |1+
+         use(FE_gestion_client)
+        type : 18
       -
         type : 161
         enabled : false
