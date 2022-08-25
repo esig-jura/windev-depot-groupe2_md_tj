@@ -108,6 +108,13 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         HReset(TB_Fournisseur)
+         Open(FE_ajout_fournisseur)
+         
+         TableDisplay(Table_TB_Fournisseur,taCurrentRecord)
+        type : 18
+      -
         type : 161
         enabled : false
   -

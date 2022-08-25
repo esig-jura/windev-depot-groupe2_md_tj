@@ -29,6 +29,13 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         HReset(TB_localite)
+         Open(FE_ajout_localite)
+         
+         TableDisplay(Table_TB_localite,taCurrentRecord)
+        type : 18
+      -
         type : 161
         enabled : false
   -
