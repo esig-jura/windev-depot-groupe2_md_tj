@@ -78,6 +78,13 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         ScreenToFile(FE_ajout_fournisseur,TB_Fournisseur)
+         //passer en paramètre de la méthode HSave la table sur laquelle on sauvegarde les modifications, dans l'exemple ci-dessous on sauvegarde dans la table "Recette"
+         HSave(TB_Fournisseur)
+         Close()
+        type : 18
+      -
         type : 161
         enabled : false
   -
