@@ -1,0 +1,4 @@
+//MO001-002.TXT ANA00001 TO ANA00002
+TB_Fournisseur	nom_fourn	CLEN		la rubrique nom_fourn est maintenant une clé
+TB_localite		TAR	124	nouvelle taille enregistrement : 124
+TB_localite	habitants	RUB+		habitants est une nouvelle rubrique
