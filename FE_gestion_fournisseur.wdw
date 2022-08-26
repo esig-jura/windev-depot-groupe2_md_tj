@@ -127,7 +127,7 @@ window :
      p_codes :
       -
         code : |1+
-         IF YesNo(No,"Voulez-vous supprimer cette enregistrement?") THEN
+         IF YesNo(No,"Voulez-vous supprimer ce fournisseur ?") THEN
          	HDelete(TB_Fournisseur)
          	Table_TB_Fournisseur.BrowsedFile = "TB_Fournisseur"
          ELSE

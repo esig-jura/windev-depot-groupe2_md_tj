@@ -49,7 +49,7 @@ window :
       -
         code : |1+
          
-         IF YesNo(No,"Voulez-vous supprimer cette enregistrement?") THEN
+         IF YesNo(No,"Voulez-vous supprimer cette localité ?") THEN
          	HDelete(TB_localite)
          	Table_TB_localite.BrowsedFile = "TB_localite"
          ELSE

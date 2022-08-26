@@ -177,7 +177,7 @@ window :
      p_codes :
       -
         code : |1+
-         IF YesNo(No,"Voulez-vous supprimer cette recette?") THEN
+         IF YesNo(No,"Voulez-vous supprimer cet mobilier ?") THEN
          	HDelete(TB_mobilier)
          	Table_TB_mobilier.BrowsedFile = "TB_mobilier"
          ELSE

@@ -132,7 +132,7 @@ window :
      p_codes :
       -
         code : |1+
-         IF YesNo(No,"Voulez-vous supprimer cette enregistrement?") THEN
+         IF YesNo(No,"Voulez-vous supprimer cette commande ?") THEN
          	HDelete(TB_commande)
          	Table_TB_commande.BrowsedFile = "TB_commande"
          ELSE

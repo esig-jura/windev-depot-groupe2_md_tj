@@ -154,7 +154,7 @@ window :
      p_codes :
       -
         code : |1+
-         IF YesNo(No,"Voulez-vous supprimer cette recette?") THEN
+         IF YesNo(No,"Voulez-vous supprimer ce client ?") THEN
          	HDelete(TB_clients)
          	Table_TB_client.BrowsedFile = "TB_clients"
          ELSE
