@@ -111,6 +111,14 @@ window :
       -
         type : 161
         enabled : false
+  -
+    name : Titre
+    identifier : 0x23086b7d051ba256
+    internal_properties : BQAAAAUAAACPyM5uA20s3a0fTSHAXOjUrr+bl++S/eZVwd6ZFAFNUJnlTkyhTGoRn5Cel7mlESgOCisN4RJNU+r2pCviOecIi0M+cFVK0vkDjIaYOYydLi9Noo6hNt1m52esAK/s8O2oXd8HOzMAOyqI31mlfQrUVKyMG5puPZZXD8EeGTJ5liZosDgGt4H94sjusTrc0b7crSNfmQUPM195A2FAvdNqc5CHzs97mGeL8MzkRmfjzc9U3C6onw2mnjBS4boLDbHE/4MmqIXHAu+mwLF8KtqH6VlNNyUdyADCt+GojXApSVsknxJfa0kTLsDXozACv2Ypf+OW+A/2tlZSaXed1jLETu5wvI0Lxy5ebpfRMtDO5X2w2nUaIkQYoRirbn3b6bTVUgf55guY9jZPwnj+5Rjh/dtTOvbWAiFi9BbyP12jHR9y2jveXqJpPrXcp2LWEDhzbVe3ggIb6V8sArbIuJMOWq0a3rFTkatZid8rW8AocRMD9LXdMzl6X0gyFu+JxyOUnA==
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
  menu :
   name : _Menu
   identifier : 0x292573e513b5f221

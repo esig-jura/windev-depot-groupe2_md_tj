@@ -88,6 +88,14 @@ window :
       -
         type : 278
         enabled : false
+  -
+    name : Titre
+    identifier : 0x23086bed056d56ad
+    internal_properties : BQAAAAUAAADod87fQF8gFYbG0kKx/M0p1oEPvieKxV1vvTqMmlzErjlMBR0uGKmFpiTmHCwknrLM/Nl2epKDke4yBgl4lYxINPl/XSqFTBoILZcQ9x7rHA/vYlmBNm3Fu9xDGj6wBbfx79voy7khShVcva9G+wJ1d/CbeqpWDesONBwHrhZOlX2LiZCDCRiO9RicjMW3mLM5sBc8UfemeW3XDfRioPBkmsretZAX/f/NIlZbLLAX56M2xsjwNosXXA2uqK8CUQt+++61mINhfZewB7+dmJNuE64Rnd7Q5k3KspNygz7gLWltMX283u5Gj6YzJvYKfFF8pnHlP1fjGsPPq+TWJtxlU7+mof/9ZGXV0HDSlfNvI0JllL3PQL2KKopUeav1k1pBIFSyAALr6tMazWKQPrcaHHTg7kvIMJhgR/zwSVxugTZu63GX4GBVwBrU28WEDqbhP+YyAjvLCYxBZCgvjF0ZJZ9DY8c=
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
  menu :
   name : _Menu
   identifier : 0x292573e513b5f221
