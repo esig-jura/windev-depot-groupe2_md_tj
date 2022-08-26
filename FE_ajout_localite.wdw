@@ -113,6 +113,15 @@ window :
      code : |1+
       PROCEDURE MaFenêtre()
    -
+     code : |1+
+      IF TB_localite.NewRecord THEN
+      	Reset()
+      ELSE
+      	FileToScreen()
+      END
+      
+     type : 34
+   -
      type : 230
      enabled : false
  code_parameters :
