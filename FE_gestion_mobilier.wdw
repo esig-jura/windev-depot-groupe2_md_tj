@@ -229,6 +229,12 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         HExécuteRequête(QUERY_mobilier)
+         HExporteCSV(QUERY_mobilier, "C:\Users\tanguy.jacot\Downloads\test csv\mobilier.csv","",";",hExpCréation)
+         Info("L'export a été réealisé avec succès !")
+        type : 18
+      -
         type : 161
         enabled : false
   -
@@ -239,6 +245,11 @@ window :
     code_elements :
      type_code : 4
      p_codes :
+      -
+        code : |1+
+         iDestination(iVisualisateur)
+         iImprimeEtat(ETAT_gestion_mobilier)
+        type : 18
       -
         type : 161
         enabled : false
