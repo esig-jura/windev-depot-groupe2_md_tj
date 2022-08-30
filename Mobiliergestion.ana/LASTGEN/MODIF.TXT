@@ -1,3 +1,4 @@
-//MO003-004.TXT ANA00003 TO ANA00004
-TB_localite		TAR	120	nouvelle taille enregistrement : 120
-TB_localite	habitants	RUB-		la rubrique habitants est supprimée
+//MO004-005.TXT ANA00004 TO ANA00005
+TB_Fournisseur	nom_fourn	CLE-		la rubrique nom_fourn n'est plus une clé
+TB_ligne_de_commande		TAR	100	nouvelle taille enregistrement : 100
+TB_ligne_de_commande	quantite	RUB+		quantite est une nouvelle rubrique
