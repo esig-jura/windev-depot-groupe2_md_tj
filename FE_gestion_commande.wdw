@@ -120,6 +120,13 @@ window :
      type_code : 4
      p_codes :
       -
+        code : |1+
+         HReset(TB_commande)
+         Open(FE_ajout_commande)
+         
+         TableDisplay(Table_TB_commande,taCurrentRecord)
+        type : 18
+      -
         type : 161
         enabled : false
   -
@@ -153,7 +160,8 @@ window :
      p_codes :
       -
         code : |1-
-         
+         Open(FE_ajout_commande)
+         TableDisplay(Table_TB_commande,taCurrentSelection)
         type : 18
       -
         type : 161

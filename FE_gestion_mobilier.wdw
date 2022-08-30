@@ -232,7 +232,7 @@ window :
         code : |1+
          HExécuteRequête(QUERY_mobilier)
          HExporteCSV(QUERY_mobilier, "C:\Users\tanguy.jacot\Downloads\test csv\mobilier.csv","",";",hExpCréation)
-         Info("L'export a été réealisé avec succès !")
+         Info("L'export a été réalisé avec succès !")
         type : 18
       -
         type : 161
