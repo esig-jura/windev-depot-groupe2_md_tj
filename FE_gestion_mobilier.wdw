@@ -288,7 +288,7 @@ window :
   -
     name : SC_filtre
     identifier : 0x230f51d711bd5a27
-    internal_properties : BQAAAAUAAABZbzLy02T65taVSAW9Uozo220FcVhGPEG2cfmUY0RsWT2EG24XZOOQPbnvB9nWM6dO3okMC1bbLjbqshcIydOebh2/L4dOlW6Lr4Zle5BP1VNs4QEHqCiU6RQEvt103prRgSjqrNxtKBKwbMY7ztLejFBC5yCLYDbzBbPE1+TbQwXkWSnY0PxaF4jiHzf3qEMr8AZqxFspDSSXMPWuiTk8YWAVp2ihRKj6K9EYk9VzM+T+sG71QMKehiDu0/Pcpj0pmva0Brr+JgXk7EzKqINy9d575CYeHAqiA/9RsLwUNPXcE5ypAlUfusbCvQdjlC4B+ByBjsrir3DRdl9lKsa7rA8ofZhVletQ473WZg6aS7FdpjHh2WG8qv/tuLB81MJs7+geQSKEkDmQwdgKos7T4pGLhuv5g5OBT90xeUU/iRBnOFSJ8975Lzykz2aKHBqrenlyhvjJdHs2uk274cQNXbhSIQ==
+    internal_properties : BQAAAAUAAAATpdQcDcacyOC3LtfDRJYiDavPM5qADlPYA8+mGZ7WO+fCxbiBdt2Ch/stKReATUk4TJP2/Xg1WLgkaLGuY4VwcBupOfHYF+sNNQbviYJB30l2k0H7pMQ8g/4EsFPaGLyfu3ZeJMy9OCRivFCJPOC0wqrA0/w3ZCqNhzNSodbhUetWZxWMzMiaBVYeVbH9ZqFpOgRGnFOtkZ450Hu8uyeq19IryzjRVDgsPaGG1Yv1TWLwcStw3WMBZY/fIEKt1e52L0OlVXuznewLZclBKXa3vnfk0XF7bR3B1sSqk5HHebq5sN0Ik+Kq0b3Lql40s8+qMR3usZ+r9utwd7ykKyU0KSzNpgcmWi4XJuqfYUNtmHpWqzro0m5LJX5yNS7+SrR++eIUX8wqNpM6e2aYNLw9THv9FFlL0WFTkZ93h1ct++Kx8iqnnYQfAU62/VS8YtztxDPIPALfCs3Y3GORO2Kv/9oM5w==
     type : 3
     code_elements :
      type_code : 2
@@ -313,29 +313,29 @@ window :
       -
         code : |1+
          
+         //Définition de quel requête sera utilisé en fonction du bouton radio
+         IF RB_filtre = 1 THEN
+         	
+         	req_trimobilier.Paramnom_contient= MySelf
+         	req_trimobilier.Paramnom_commence = Null
+         	
+         	
+         	
+         else
+         	req_trimobilier.Paramnom_contient	= Null
+         	req_trimobilier.Paramnom_commence	= MySelf
          
-         //IF RB_filtre = 1 THEN
-         //	
-         //	 req_trimobilier.Paramnom_contient= MySelf
-         //	req_trimobilier.Paramnom_commence = Null
-         //	
-         //	
-         //	
-         //else
-         //	req_trimobilier.Paramnom_contient	= Null
-         //	req_trimobilier.Paramnom_commence	= MySelf
-         //
-         //END
-         //
-         //
-         //Table_TB_mobilier..FichierParcouru = "req_trimobilier"
-         ////TableDisplay(Table_TB_mobilier)
-         SELON RB_filtre
-         	//Si le champ interrupteur est = 1 alors la table va être filtrée selon si la personne est administrateur
-         	CAS 1 : TableActiveFiltre(Nom_mobilier,filtreEgal,RB_filtre)
-         	//Le filtre est désactivé quand le champ interrupteur = 0
-         	CAS 0 : TableDisableFilter(Nom_mobilier)
-         FIN
+         END
+         Table_TB_mobilier..FichierParcouru = "req_trimobilier"
+         
+         //Trie sur la colonne nom mobilier
+         TableTrie(Table_TB_mobilier,"Nom_mobilier")
+         ////SELON RB_filtre
+         //	Si le champ interrupteur est = 1 alors la table va être filtrée selon si la personne est administrateur
+         //	CAS 1 : TableActiveFiltre(Nom_mobilier,filtreEgal,RB_filtre)
+         //	Le filtre est désactivé quand le champ interrupteur = 0
+         //	CAS 0 : TableDisableFilter(Nom_mobilier)
+         //FIN
         type : 17
  menu :
   name : _Menu
