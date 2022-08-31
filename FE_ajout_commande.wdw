@@ -146,13 +146,15 @@ window :
          //création d'un enregistrement pour la commande
          TB_commande.Date = CS_date
          TB_commande.fk_client = liste_clients
-         HAjoute(TB_commande)
          //récupération de l'ID de la commande
           HLitDernier(TB_commande,pk_commande)
-          nocommande = TB_commande.pk_commande
+          nocommande = TB_commande.no_commande
+          nocommande++
+          TB_commande.no_commande = nocommande
+         HAjoute(TB_commande)
           
           pour tout ligne de table_TB_ajout_commande
-          TB_ligne_de_commande.fk_commande = nocommande
+          TB_ligne_de_commande.fk_commande = TB_commande.pk_commande
           TB_ligne_de_commande.fk_mobilier = table_TB_ajout_commande.pk_mobilier
           TB_ligne_de_commande.quantite = table_TB_ajout_commande.quantité
           
@@ -171,6 +173,10 @@ window :
     code_elements :
      type_code : 4
      p_codes :
+      -
+        code : |1+
+         Close()
+        type : 18
       -
         type : 161
         enabled : false
