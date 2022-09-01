@@ -101,6 +101,7 @@ window :
      p_codes :
       -
         code : |1+
+         //supprime l'enregistrement sélectionné avec un message de confirmation
          IF YesNo(No,"Voulez-vous supprimer ce fournisseur ?") THEN
          	HDelete(TB_Fournisseur)
          	Table_TB_Fournisseur.BrowsedFile = "TB_Fournisseur"
@@ -122,7 +123,9 @@ window :
      p_codes :
       -
         code : |1+
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_fournisseur)
+         //Dans la fenêtre d'ajout, affichera déjà l'enregistrement qui était sélectionné afin de ne pas devoir tout réécrire
          TableDisplay(Table_TB_Fournisseur,taCurrentSelection)
         type : 18
       -
@@ -138,6 +141,7 @@ window :
      p_codes :
       -
         code : |1+
+         //ferme la fenêtre de gestion et ouvre la fenêtre d'accueil
          Use(FE_accueil)
         type : 18
       -
@@ -161,9 +165,11 @@ window :
      p_codes :
       -
         code : |1+
+         //Pose la valeur par défaut 
          HReset(TB_Fournisseur)
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_fournisseur)
-         
+         //Affiche l'enregistrement courant dans la page d'ajout (qui sera vide grâce au Hreset)
          TableDisplay(Table_TB_Fournisseur,taCurrentRecord)
         type : 18
       -

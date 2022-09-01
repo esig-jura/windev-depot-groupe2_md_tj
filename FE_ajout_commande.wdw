@@ -118,7 +118,7 @@ window :
      p_codes :
       -
         code : |1+
-         
+         //ajoute au tableau provisoire une ligne d'enregistrement contenant le nom du mobilier et la quantité commandée
          table_TB_ajout_commande.addline(liste_mobilier,liste_mobilier.ValeurAffichée,CS_quantité)
         type : 18
       -
@@ -134,24 +134,31 @@ window :
      p_codes :
       -
         code : |1-
+         //variable provisoire pour enregistrée le no de commande
          nocommande is int
-         //création d'un enregistrement pour la commande
+         //création d'un enregistrement pour la commande, envoie les données remplies (date et clients)
          TB_commande.Date = CS_date
          TB_commande.fk_client = liste_clients
          //récupération de l'ID de la commande
           HLitDernier(TB_commande,pk_commande)
+         //enregistrement du numéro de commande précédent
           nocommande = TB_commande.no_commande
+          //incrémentation afin d'avoir le numéro de commande suivant (ex: si le précédent était 67, celui-ci sera 68)
           nocommande++
+          //passe la variable provisoire pour changer le no de commande dans le champs no_commande de la TB_commande
           TB_commande.no_commande = nocommande
+          //ajoute toutes les données concernant la commande dans la TB_commande
          HAjoute(TB_commande)
           
+          //boucle pour lire toutes les lignes de commandes et les lier à la commande
           pour tout ligne de table_TB_ajout_commande
           TB_ligne_de_commande.fk_commande = TB_commande.pk_commande
           TB_ligne_de_commande.fk_mobilier = table_TB_ajout_commande.pk_mobilier
           TB_ligne_de_commande.quantite = table_TB_ajout_commande.quantité
-          
+          //enregistre chaque ligne dans la commande
           HAjoute(TB_ligne_de_commande)
           FIN
+          //ferme la fenêtre et rouvre la fenêtre de gestion
           close()
         type : 18
       -
@@ -167,6 +174,7 @@ window :
      p_codes :
       -
         code : |1+
+         //Ferme la fenêtre d'ajout et nous renvoie sur fenêtre de gestion sans valider l'ajout
          Close()
         type : 18
       -
@@ -202,7 +210,7 @@ window :
     identifier : 0x230dd21305580ab3
     internal_properties : BQAAAAUAAACJ3/bv1rScLc/P+aNSbc8rr5W0bSMFBiHWZZwatTN8IGBdutUJhldJz0rNT4OSR2LsurqJldonaH9l7TaLqbEdijp9LLulUkzj57XZtnNWw88mGhSWu+qKAjL0qxlDwNYV+WMdIJGDVp2PElqz257TZAuz9xP7UE82Gio5e5Fk7056OFFZwwkLJj4KgxNialp+3EIeQluLz0HCxDchThtTR/bWvkeX7kwz26aJyFH4HI0jMo5xkyZIaRgRJaClNnCzcTvmdq/wpzEOlPLM4cBzKRtiKPBIu1ZXbmedKU03MjSeFHpD4SYlGWsZrnbkUyZL8Da7NgXHLhQpnGwUq/YWw4sRXGCwwGr4yMVcJuLC6vXrwOSmClETN8TVimf00JrE58R9nh0hL9f0ElCmxvOBDV0xxv0w2ynL8syx/bapm3W78v8oFhaGW2lMzor3Lxs81FfWJk6hjFnL1gnFqqMI/E0KI/xGG5+jtCU3ZcoLQSaDqGxKvjrugtUEG4x4AXKcIdDv/SOGeTdj1CufPnwfycQZ0fgPBY3+OU95jmA/UsGCBi0S6/tOMPKdn4xfgXQ0Zvtun8xkPVHQI2zMlr+RBth0nXDaX+1fFoHEN+Dl4IY1Ah+zm5+tKDK4tc+8kAAMrAHrNOEOQa7jR4Ho0hzt2IHxv//CMNpP7YPkSftwI+qVSU4GpdReHxkGORsXfCYixjBGfY8QpKHDRfT+1YnAa1sn4M5fIPLmFRCEqaQlHWAJ+MhY9ty8AfjvqjHF0vxeXDLo/WiunR3aOBcczS8MtngZZC1Xd/0CT/wFS4YmWOdFB/XgGAUkMl1xd0GskrQ5MjvN8R6BYzSDnBLLRXPvO3TODTWfnN6GuDK/7uFuzp9n8Uq1avdTrZwyfoNEQjpOFpFsvW42xU9ZIoWES4aS6XzuJleL1ezxGnkcXminaeHvN1fQqOhizDLsqlmMNmSPx8Oudr9+RAnyY5BG5C7XrxWSCeZi83QCL8S7qECHi9rCK8hHSSyLuj+oyGVf0pV6HGUbAnCjkdvtCMj62+JhrJgqeO9lw9f/1ixZp0BtmUpNRv+RmxdCKCWGlVtvEqbPywsyXi3IvjyFvHMHFOscD7eC4jdM3U7n04yf6uqt8s5Yq7AF2TQRjiWlUewbAYgPbyus5UtHYWwsnTqhoJ/4QW6WlBaI3cqpFBaJfrCL3HQgdwNBDIIK5eNj8HHoL+POFCr9xDXjLVucUvcVw0cYjNTkrHJnJkDXTJPpAb9nfyL7dksIae4ueNrnyI48SvvsB+6hWdJ3xUJQCkkEiw3acWw+0I3gRiGJvPOtxPJoX9YkfvpHqejF9Hx3KYB3wakUWnbC6ZhkgZBVcumNzZM8EA1vaaz7Lj33U1K8/TiIt5KC7wNoWZZ0gPw93ygcr3lj0yZASQFgHjMMvu38bhLOyWFVezOMXeTrXeM9kGX/jXrQd0/iyyWjyQvHoM6I7zhDOK28wSaeYMuiwSAdw7cBpQG+NXJCeWeA9qLAHp73quENaySy0h5MITuWtxVk3g==
     dropdown :
-     internal_properties : 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
+     internal_properties : BQAAAAUAAAAUhodt4I6YaX1biSXziNN+oVf5KWTADe6IHuDeGNrkBK/WTGtqW6WZSgpfW0dkcc/j1dIF1bWKZ2UB98ZzK/q3A/SqQ7VnGFvemFtZf4Mq3bmttHQS9mRxXk/mk+wur9NRVrMg4fbinZUMfq2NGwkZQ5GqjyGTZwXtN721myd+EgZFO4qvP0QGQ65log5JZT6yunxr1EYhD7Vp3uAwJTamdzxQfqheBVMFc2psqiFjY28mUth5foVh983vnLcSfDmAEpd+vOC6zZ1k0MDBZqegj02tjryu3/bK6EqjqsD++rlndLVwP5EUNm0gIOQUZO9IMiWPMHBTXJbHzna7qYaLPIHnJj5xSkc9ep1FP3+7tzBN+iGXTTXR7pZWzpdRsaYBFZ0Mu8MIdHP5xBO2c3Aw8TUnPE9dbpG+nyqroWeMGV9u5HMt9kIVTgOjAaV8CiNqF3eF0UvhOjYPRnOghm+ocHAmFGJsvCPKGDMHeNNTx7bGo5zc6yF0NvYhjHUjxyrGb/VdCUwSWbOLH3Sy6cr3yag4BmDSIDNpd3Om+w2DG5Wirtwh5RzqbMruYEKqiy+7mKHxmBoctD39PI76rwS4v8hnV8kxEm1BTkq+SVXmsN77YjL8IybFOryc45+//Yf+IH4IYsSrU9Ihw/1OJyOWY51EvFivj9NIPb33rOEcgg0Fjs196Hx3crvp9Egm5seCgV3V0LvdvG33v5vKXBSCOnh5OIg4h0XiSLBGP/5+JaEGpwsNTPEwCroqwJ4UYNEDauMeKuLFQQl3PWxFwcyvWpa47LGNYK4xeaI/5JkhkYoy3Le19eDvz9HIlXu+YF2v1xfoG+5yydyI5T+mia6dmKd1c7nqQtYdWCObBtX0of+Y9OBqSmpMXa7aCh20AY6Aw0mZXLcEfTNwYJuLMB8zt+Fna34nU7Ec1Gw7EMiWDL0GdtHCVOo/rtR9vzlKg4r+W2dJO1eqk5NvpEGsFaD7WcUN6eo/d6szPEhtE2c7jxw8EP/Glcg6GfQwDrzll8RjLrVFxvk9wmZxe1K711OKsWg5blPTYT+yHRCXZynQG/fPhxDIVs9JTVNThwa0dmk1Zs54iKBU5na40HZcoLWd/o1g+WEZgBKvo2TSR7ADM5DJVKZapaY+exW8W2gWkhgm8lGmYgCnizIW9ryxs0L37YtX+/Np6nHycXAMe0DfFtjQDKTU+4cQhchrWI2Cs62JKqbHJtAS2ts2jaNh3WIOhZO7zimyus7BlpFD9jvaJD1B7m7rcw3mXD+OW8jAKNEH1c479fkS5Y2/mMspbL4v1ZAizEPRSmBkxI8PmBzuWfqEXFZ0fTzpoCD17NlxjouNU9BXHH3L6wHy+XHMNwCoLnw9Pb68U1+WjydE9UYit66QkUCQga4AwmWBt6gJXUZHLs0QbEvjjl+TPIIPYUyASLEnPGvLyjW8DqAVLy+2j/D9JNA2U3y1m9YfRogrZx32eTdWumQp66VD38kB4VYnDvTOO5arol1jb0ZI7WYPiAnSawe1/wpv5U88e+A7js6k3lLYvB60ZpYRw9u+ikwPP7a6Q0hZX84FRvOCtsRgPw7gY16AYwcuTf1RBhGEX6LfYgHR1ajo/eSOqZ2ECjZ+jgCx30LDwtvwhq7QY+FD5tUHU5zHdx2jiE05WG6YOaM9NmpW/IBRTzEf+qPKsb5VcCpR5ErJfQTsehxfGDn44DtCorXGh1DkKKf1Fy+R3AXST+xI1wntQAJEazJwzvR9RMGWnr/C+Q5nMIEF0/kapuhKp6r704SNaHSNCirc/qzpmHuQCs8xbYFgBEdqmZewdN8lO9BLX6XU1OzJzTSFL5R4N951YolwgRv1ToB9FM99sfn5HHs4h7XPLuQfUpmt1C+0Fe/UMnO9W9NKnVsDTNG1md+kCeybb9n0J8255PGlM08JXGNOeW7AzwYxvJHmvsWTtjUCyUF6DGE7hYdQL6Jy9chWpsxcbHwPNEd5KqlY0ZAOUmo2SmJV3A4IL8H+RSD9hsaYvLPCN6CKfOgI6KA6HSCW+GXL/nyJDQaHxmAp24CNw34B/nLIWwO8pY//Me7Bsjn1yFtHaejPXK+W5uC4BAdvMRx5+xvn+ZvdkKe2jRCE+mLkXCxvJOlHEA3W0tNwKVaGVgbu5GkzBkDfRmlAtjk2B7upgsy70JjK7vTM5E/d9O+auP6Fkh7FL3i6oTsPQS+SE8X+x6V/TI+hODxHvW+waiFInIFcdxwWnMIJ0xS+zudEjEHSgXx1Y8KHgE+USFtrk9/oIuNCngOPN7QxmW4LonsXTighORB+TVtLtU4Owr+v5g8mJgaBcGturOZayKvxW/BtEIOk880PRl+rR0rDxiZlLCqrnuS3x9padWMHIpadjWux8mwqgYV7Aiiy/DQ3LpM6E0m4wnDY17lMbgv3RlNU6ri9iDPRZyPCGakOcS8HEz/UszRx85Rwq9K8U5amHEoWD+uEbC0OJYL6uHyKieGskEWwM+MVB80DtGMOv8fio10A8LVr3PaHHFrdhSChKdRrcn6uECUoHnpfu4pf4NMAzvZInJ9Ogu1szCvtoy+5QmXxUjX+zqk5enMKRpzIXu8IsEW01WiC2BLWxdviT9ITt9ZjNsT10NfrQ6MBcvoKWguvlkz/Y+BWju+b+pYJl+SL1o4sNGFO/d7RDv/6+vrlXxKs0mKItO2pGPaKS79zsanKHrcKx9myUOiadkTzUOJzw/g9//+QXyFAHdskliGOS1aNIYbPdrm6nVdrmhX69N5UXz2mpa5XAfzb6Xl4+fZBC7aIMo4H76ya4wV1cEcFH0t9AlSe4ZC5U+E7yCfzamtFrqdLzp6st6FSWNMKbIVEnq/bXROfXRHcGO6xfwJpsvlxj+U+SQHFoCNFWc1ihJkgrGnf3HhO/5EhgelHQ9x5j/l+YshwSw/yE6Ltu4dJRdHTa48=
      columns :
       -
         name : nom_cli

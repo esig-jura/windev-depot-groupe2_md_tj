@@ -113,9 +113,11 @@ window :
      p_codes :
       -
         code : |1+
+         //Pose la valeur par défaut 
          HReset(TB_commande)
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_commande)
-         
+         //Affiche l'enregistrement courant dans la page d'ajout (qui sera vide grâce au Hreset)
          TableDisplay(Table_TB_commande,taCurrentRecord)
         type : 18
       -
@@ -131,6 +133,7 @@ window :
      p_codes :
       -
         code : |1+
+         //supprime l'enregistrement sélectionné avec un message de confirmation, supprime également les lignes de commandes liées
          IF YesNo(No,"Voulez-vous supprimer cette commande ?") THEN
          	HDelete(TB_commande)
          	Table_TB_commande.BrowsedFile = "TB_commande"
@@ -152,6 +155,7 @@ window :
      p_codes :
       -
         code : |1+
+         //ferme la fenêtre de gestion et ouvre la fenêtre d'accueil
          Use(FE_accueil)
         type : 18
       -

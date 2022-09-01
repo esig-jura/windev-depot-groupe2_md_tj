@@ -128,9 +128,11 @@ window :
      p_codes :
       -
         code : |1+
+         //Pose la valeur par défaut 
          HReset(TB_clients)
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_client)
-         
+         //Affiche l'enregistrement courant dans la page d'ajout (qui sera vide grâce au Hreset)
          TableDisplay(Table_TB_client,taCurrentRecord)
         type : 18
       -
@@ -146,6 +148,7 @@ window :
      p_codes :
       -
         code : |1+
+         //supprime l'enregistrement sélectionné avec un message de confirmation
          IF YesNo(No,"Voulez-vous supprimer ce client ?") THEN
          	HDelete(TB_clients)
          	Table_TB_client.BrowsedFile = "TB_clients"
@@ -169,7 +172,9 @@ window :
      p_codes :
       -
         code : |1+
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_client)
+         //Dans la fenêtre d'ajout, affichera déjà l'enregistrement qui était sélectionné afin de ne pas devoir tout réécrire
          TableDisplay(Table_TB_client,taCurrentSelection)
          
         type : 18
@@ -186,6 +191,7 @@ window :
      p_codes :
       -
         code : |1+
+         //ferme la fenêtre de gestion et ouvre la fenêtre d'accueil
          Use(FE_accueil)
         type : 18
       -
