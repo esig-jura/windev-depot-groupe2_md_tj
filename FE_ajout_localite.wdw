@@ -22,9 +22,11 @@ window :
      p_codes :
       -
         code : |1+
+         //enregistre provisoirement les données de la fenêtre dans la table
          ScreenToFile(FE_ajout_localite,TB_localite)
-         //passer en paramètre de la méthode HSave la table sur laquelle on sauvegarde les modifications, dans l'exemple ci-dessous on sauvegarde dans la table "Recette"
+         //Sauvegarde les données enregistrées par le screen to file dans la table
          HSave(TB_localite)
+         //fermeture de la fenêtre et renvoie à la fenêtre de gestion
          Close()
          
         type : 18
@@ -41,6 +43,7 @@ window :
      p_codes :
       -
         code : |1+
+         //Ferme la fenêtre d'ajout et nous renvoie sur fenêtre de gestion sans valider l'ajout/la modification
          Close()
         type : 18
       -

@@ -169,6 +169,7 @@ window :
      p_codes :
       -
         code : |1+
+         //supprime l'enregistrement sélectionné avec un message de confirmation
          IF YesNo(No,"Voulez-vous supprimer cet mobilier ?") THEN
          	HDelete(TB_mobilier)
          	Table_TB_mobilier.BrowsedFile = "TB_mobilier"
@@ -191,7 +192,9 @@ window :
      p_codes :
       -
         code : |1+
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_mobilier)
+         //Dans la fenêtre d'ajout, affichera déjà l'enregistrement qui était sélectionné afin de ne pas devoir tout réécrire
          TableDisplay(Table_TB_mobilier,taCurrentSelection)
         type : 18
       -
@@ -207,6 +210,7 @@ window :
      p_codes :
       -
         code : |1+
+         //ferme la fenêtre de gestion et ouvre la fenêtre d'accueil
          use(FE_accueil)
         type : 18
       -
@@ -222,8 +226,11 @@ window :
      p_codes :
       -
         code : |1+
+         //Exécute la requête qui permet l'affichage des bonnes données
          HExécuteRequête(QUERY_mobilier)
+         //exporte le CSV au dossier souhaité // à discuter avec le client d'où envoyer le CSV
          HExporteCSV(QUERY_mobilier, "C:\Users\tanguy.jacot\Downloads\test csv\mobilier.csv","",";",hExpCréation)
+         //confirmation au client que son CSV a bien été exporté
          Info("L'export a été réalisé avec succès !")
         type : 18
       -
@@ -239,7 +246,9 @@ window :
      p_codes :
       -
         code : |1+
+         //ouvre le visualisateur (apercu avant impression)
          iDestination(iVisualisateur)
+         //Impression de l'état
          iImprimeEtat(ETAT_gestion_mobilier)
         type : 18
       -
@@ -255,9 +264,11 @@ window :
      p_codes :
       -
         code : |1+
+         //Pose la valeur par défaut 
          HReset(TB_mobilier)
+         //ouvre la fenêtre d'ajout
          Open(FE_ajout_mobilier)
-         
+         //Affiche l'enregistrement courant dans la page d'ajout (qui sera vide grâce au Hreset)
          TableDisplay(Table_TB_mobilier,taCurrentRecord)
         type : 18
       -
@@ -330,12 +341,7 @@ window :
          
          //Trie sur la colonne nom mobilier
          TableTrie(Table_TB_mobilier,"Nom_mobilier")
-         ////SELON RB_filtre
-         //	Si le champ interrupteur est = 1 alors la table va être filtrée selon si la personne est administrateur
-         //	CAS 1 : TableActiveFiltre(Nom_mobilier,filtreEgal,RB_filtre)
-         //	Le filtre est désactivé quand le champ interrupteur = 0
-         //	CAS 0 : TableDisableFilter(Nom_mobilier)
-         //FIN
+         
         type : 17
  menu :
   name : _Menu
