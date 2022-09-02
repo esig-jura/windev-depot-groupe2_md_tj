@@ -137,18 +137,26 @@ window :
          //variable provisoire pour enregistrée le no de commande
          nocommande is int
          //création d'un enregistrement pour la commande, envoie les données remplies (date et clients)
-         TB_commande.Date = CS_date
-         TB_commande.fk_client = liste_clients
-         //récupération de l'ID de la commande
+         
+         
+         
+         //récupération la dernière commande passée
           HLitDernier(TB_commande,pk_commande)
+          
          //enregistrement du numéro de commande précédent
           nocommande = TB_commande.no_commande
           //incrémentation afin d'avoir le numéro de commande suivant (ex: si le précédent était 67, celui-ci sera 68)
           nocommande++
           //passe la variable provisoire pour changer le no de commande dans le champs no_commande de la TB_commande
           TB_commande.no_commande = nocommande
+          
+          //reprend le numéro du client et la date de la nouvelle commande
+          TB_commande.fk_client = liste_clients
+          TB_commande.Date = CS_date
           //ajoute toutes les données concernant la commande dans la TB_commande
          HAjoute(TB_commande)
+         
+         
           
           //boucle pour lire toutes les lignes de commandes et les lier à la commande
           pour tout ligne de table_TB_ajout_commande
